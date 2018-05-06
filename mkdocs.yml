@@ -1,0 +1,16 @@
+site_name: GridCal 中文维基
+
+pages:
+  - 欢迎: 'index.md'
+  - 主页: 
+    - '了解 Gridcal' : 'mainpage/about.md'
+    - '编者注' : 'mainpage/addition.md'
+  - 安装与开发:
+    - '安装' : 'start/install.md'
+    - '二次开发' : 'start/develope.md'
+  - 开发指南:
+    - '界面类' : 'guide/ui.md'
+    - '功能类' : 'guide/function.md'
+    - '算法类' : 'guide/algorithm.md'
+
+theme: readthedocs

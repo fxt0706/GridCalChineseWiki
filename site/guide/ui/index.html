@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>界面类 - GridCal 中文维基</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u754c\u9762\u7c7b";
+    var mkdocs_page_input_path = "guide/ui.md";
+    var mkdocs_page_url = "/guide/ui/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> GridCal 中文维基</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">欢迎</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">主页</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../mainpage/about/">了解 Gridcal</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../mainpage/addition/">编者注</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">安装与开发</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../start/install/">安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../start/develope/">二次开发</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">开发指南</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">界面类</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#_1">界面类</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#bus">Bus（母线）</a></li>
+        
+            <li><a class="toctree-l4" href="#load">Load（负载）</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../function/">功能类</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../algorithm/">算法类</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">GridCal 中文维基</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>开发指南 &raquo;</li>
+        
+      
+    
+    <li>界面类</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">界面类</h1>
+<h2 id="bus">Bus（母线）</h2>
+<p>Bus 为网络中的基础节点，相当于母线。在Bus上，可以添加发电机，负载，接地等等</p>
+<h3 id="guigrideditorwidgetbusgraphiciteminit">/gui/GridEditorWidget/BusGraphicItem/<strong>init</strong></h3>
+<p>Bus 对象的初始化方法。其中可修改绘图板内的 Bus 的默认正方形图标为圆形。</p>
+<pre><code class="python"># 默认的正方形
+class BusGraphicItem(QGraphicsRectItem, GeneralItem):
+# 修改为圆形
+class BusGraphicItem(QGraphicsEllipseItem, GeneralItem):
+</code></pre>
+
+<h3 id="guigrideditorwidgetgrideditorinit">/gui/GridEditorWidget/GridEditor/<strong>init</strong></h3>
+<p>将左侧列表中的小Bus图标，同上，可将正方形改为圆形。</p>
+<pre><code class="python">self.libItems.append(QStandardItem(object_factory.get_box(), 'Bus'))
+# get_box 修改为 get_circle
+self.libItems.append(QStandardItem(object_factory.get_circle(), 'Bus'))
+</code></pre>
+
+<h3 id="guigrideditorwidgetobjectfactoryget_circle">/gui/GridEditorWidget/ObjectFactory/get_circle</h3>
+<p>可修改左侧列表中的小Bus图标的圆形的参数，例如加黑边，更换颜色。</p>
+<pre><code class="python"># 修改刷子的颜色以及圆形的大小
+painter.setBrush(Qt.black)
+painter.drawEllipse(5, 5, 30, 30)
+painter.setBrush(Qt.white)
+painter.drawEllipse(8, 8, 24, 24)
+</code></pre>
+
+<h3 id="guigrideditorwidgetbusgraphicitemcontextmenuevent">/gui/GridEditorWidget/BusGraphicItem/contextMenuEvent</h3>
+<p>修改在Bus上点击右键后，所展示的内容</p>
+<pre><code class="python"># addAction 中的参数为展示的文字
+pe = menu.addAction('Enable/Disable')
+# connect 用来关联点击后的方法
+pe.triggered.connect(self.enable_disable_toggle)
+</code></pre>
+
+<h2 id="load">Load（负载）</h2>
+<p>Load（负载）可以附加在 Bus 上，默认为简单的黑色空心三角形</p>
+<h3 id="guigrideditorwidgetloadgraphiciteminit">/gui/GridEditorWidget/LoadGraphicItem/<strong>init</strong></h3>
+<p>可修改 Load 的大小和颜色</p>
+<pre><code class="python">triangle = Polygon(self)
+# 修改多边形形状
+triangle.setPolygon(QPolygonF([QPointF(0, 0), QPointF(self.w, 0), QPointF(self.w/2, self.h)]))
+# 修改颜色
+triangle.setPen(QPen(Qt.black, 2))
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../function/" class="btn btn-neutral float-right" title="功能类">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../start/develope/" class="btn btn-neutral" title="二次开发"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../start/develope/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../function/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

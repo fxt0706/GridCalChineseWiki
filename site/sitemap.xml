@@ -3,8 +3,8 @@
 
     
     <url>
-     <loc>/</loc>
-     <lastmod>2017-10-30</lastmod>
+     <loc>None/</loc>
+     <lastmod>2018-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,30 +12,14 @@
     
         
     <url>
-     <loc>/mainpage/about/</loc>
-     <lastmod>2017-10-30</lastmod>
+     <loc>None/mainpage/about/</loc>
+     <lastmod>2018-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/mainpage/addition/</loc>
-     <lastmod>2017-10-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/start/install/</loc>
-     <lastmod>2017-10-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/start/develope/</loc>
-     <lastmod>2017-10-30</lastmod>
+     <loc>None/mainpage/addition/</loc>
+     <lastmod>2018-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -44,20 +28,36 @@
     
         
     <url>
-     <loc>/guide/ui/</loc>
-     <lastmod>2017-10-30</lastmod>
+     <loc>None/start/install/</loc>
+     <lastmod>2018-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/guide/function/</loc>
-     <lastmod>2017-10-30</lastmod>
+     <loc>None/start/develope/</loc>
+     <lastmod>2018-05-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/guide/ui/</loc>
+     <lastmod>2018-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/guide/algorithm/</loc>
-     <lastmod>2017-10-30</lastmod>
+     <loc>None/guide/function/</loc>
+     <lastmod>2018-05-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/guide/algorithm/</loc>
+     <lastmod>2018-05-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

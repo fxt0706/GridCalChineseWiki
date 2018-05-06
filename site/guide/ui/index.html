@@ -3,28 +3,31 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  
-  <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>界面类 - GridCal 中文维基</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../../css/highlight.css">
+
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\u754c\u9762\u7c7b";
-    var mkdocs_page_input_path = "guide/ui.md";
-    var mkdocs_page_url = "/guide/ui/";
+    var mkdocs_page_name = "界面类";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
   <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
   
 </head>
 
@@ -44,76 +47,106 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+        <ul class="current">
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">欢迎</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">主页</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../mainpage/about/">了解 Gridcal</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../mainpage/addition/">编者注</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">安装与开发</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../start/install/">安装</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../start/develope/">二次开发</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">开发指南</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <a class="current" href="./">界面类</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#_1">界面类</a></li>
-    
-        <ul>
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">欢迎</a>
         
-            <li><a class="toctree-l4" href="#bus">Bus（母线）</a></li>
-        
-            <li><a class="toctree-l4" href="#load">Load（负载）</a></li>
-        
-        </ul>
-    
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>主页</span></li>
 
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../mainpage/about/">了解 Gridcal</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../mainpage/addition/">编者注</a>
+        
+    </li>
+
+        
     </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../function/">功能类</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../algorithm/">算法类</a>
-                </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>安装与开发</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../start/install/">安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../start/develope/">二次开发</a>
+        
+    </li>
+
+        
     </ul>
-	    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>开发指南</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">界面类</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#_1">界面类</a></li>
+                
+                    <li><a class="toctree-l4" href="#bus">Bus（母线）</a></li>
+                
+                    <li><a class="toctree-l4" href="#load">Load（负载）</a></li>
+                
+                    <li><a class="toctree-l4" href="#shunt">Shunt (分流器)</a></li>
+                
+                    <li><a class="toctree-l4" href="#controlled-generator">Controlled Generator（受控发电机）</a></li>
+                
+                    <li><a class="toctree-l4" href="#static-generator">Static Generator（静止发电机）</a></li>
+                
+                    <li><a class="toctree-l4" href="#battery">Battery（电池）</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../function/">功能类</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../algorithm/">算法类</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
           
         </ul>
       </div>
@@ -152,24 +185,39 @@
             <div class="section">
               
                 <h1 id="_1">界面类</h1>
+<p>本章中的内容主要为 class 索引，以及 UI 实现上一些关于关键 UI 颜色、大小的修改方式。</p>
+<p>由于作者一直在优化其代码，故一些注解有其时效性。</p>
 <h2 id="bus">Bus（母线）</h2>
 <p>Bus 为网络中的基础节点，相当于母线。在Bus上，可以添加发电机，负载，接地等等</p>
-<h3 id="guigrideditorwidgetbusgraphiciteminit">/gui/GridEditorWidget/BusGraphicItem/<strong>init</strong></h3>
+<h3 id="guigrideditorwidgetpybusgraphiciteminit">/Gui/GridEditorWidget.py/BusGraphicItem/<strong>init</strong></h3>
 <p>Bus 对象的初始化方法。其中可修改绘图板内的 Bus 的默认正方形图标为圆形。</p>
-<pre><code class="python"># 默认的正方形
-class BusGraphicItem(QGraphicsRectItem, GeneralItem):
+<pre><code class="python"># bus 默认为长条状的长方形，宽180,长20，修改数字即可修改长宽
+self.min_w = 180.0
+self.min_h = 20.0
+
+# 此处为 bus 的实现方法，默认为矩形
+self.tile = QGraphicsRectItem(0, 0, self.min_h, self.min_h, self)
+self.tile.setOpacity(0.7)
+
 # 修改为圆形
-class BusGraphicItem(QGraphicsEllipseItem, GeneralItem):
+self.tile = QGraphicsEllipseItem(0, 0, 100, 100, self)
+self.tile.setOpacity(0.7)
+
+# 此处为标签，可进行字体颜色和内容的设置
+self.label = QGraphicsTextItem(bus.name, self)
+# self.label.setDefaultTextColor(QtCore.Qt.white)
+self.label.setDefaultTextColor(QtCore.Qt.black)
+
 </code></pre>
 
-<h3 id="guigrideditorwidgetgrideditorinit">/gui/GridEditorWidget/GridEditor/<strong>init</strong></h3>
-<p>将左侧列表中的小Bus图标，同上，可将正方形改为圆形。</p>
+<h3 id="guigrideditorwidgetpygrideditorinit">/Gui/GridEditorWidget.py/GridEditor/<strong>init</strong></h3>
+<p>将左侧列表中的小Bus图标，可将正方形改为圆形。</p>
 <pre><code class="python">self.libItems.append(QStandardItem(object_factory.get_box(), 'Bus'))
 # get_box 修改为 get_circle
 self.libItems.append(QStandardItem(object_factory.get_circle(), 'Bus'))
 </code></pre>
 
-<h3 id="guigrideditorwidgetobjectfactoryget_circle">/gui/GridEditorWidget/ObjectFactory/get_circle</h3>
+<h3 id="guigrideditorwidgetobjectfactoryget_circle">/Gui/GridEditorWidget/ObjectFactory/get_circle</h3>
 <p>可修改左侧列表中的小Bus图标的圆形的参数，例如加黑边，更换颜色。</p>
 <pre><code class="python"># 修改刷子的颜色以及圆形的大小
 painter.setBrush(Qt.black)
@@ -188,7 +236,7 @@ pe.triggered.connect(self.enable_disable_toggle)
 
 <h2 id="load">Load（负载）</h2>
 <p>Load（负载）可以附加在 Bus 上，默认为简单的黑色空心三角形</p>
-<h3 id="guigrideditorwidgetloadgraphiciteminit">/gui/GridEditorWidget/LoadGraphicItem/<strong>init</strong></h3>
+<h3 id="guigrideditorwidgetpyloadgraphiciteminit">/Gui/GridEditorWidget.py/LoadGraphicItem/<strong>init</strong></h3>
 <p>可修改 Load 的大小和颜色</p>
 <pre><code class="python">triangle = Polygon(self)
 # 修改多边形形状
@@ -196,6 +244,38 @@ triangle.setPolygon(QPolygonF([QPointF(0, 0), QPointF(self.w, 0), QPointF(self.w
 # 修改颜色
 triangle.setPen(QPen(Qt.black, 2))
 </code></pre>
+
+<h2 id="shunt">Shunt (分流器)</h2>
+<p>Shunt(分流器) 可以附加在 Bus 上，默认为黑色的电容器接地状。</p>
+<h3 id="guigrideditorwidgetpyshuntgraphiciteminit">/Gui/GridEditorWidget.py/ShuntGraphicItem/<strong>init</strong></h3>
+<p>可修改 shunt 的颜色</p>
+<pre><code class="python"># 默认为黑色
+pen = QPen(self.color, self.width, self.style)
+# 修改成蓝色
+pen = QPen(Qt.blue, self.width, self.style)
+</code></pre>
+
+<h2 id="controlled-generator">Controlled Generator（受控发电机）</h2>
+<p>Controlled Generator（受控发电机）可以附加在 Bus 上，默认为黑色圆圈内带字母'G'</p>
+<h3 id="guigrideditorwidgetpycontrolledgeneratorgraphiciteminit">/Gui/GridEditorWidget.py/ControlledGeneratorGraphicItem/<strong>init</strong></h3>
+<pre><code class="python"># 默认内部字母为 G
+self.label = QGraphicsTextItem('G',parent=self.glyph)
+# 修改字母为 CG
+self.label = QGraphicsTextItem('CG',parent=self.glyph)
+
+# 默认字体颜色为黑色
+self.label.setDefaultTextColor(self.color)
+# 修改字体颜色为红色
+self.label.setDefaultTextColor(Qt.red)
+
+</code></pre>
+
+<h2 id="static-generator">Static Generator（静止发电机）</h2>
+<p>Static Generator（静止发电机）可以附加在 Bus 上，默认为黑色正方形内带字母'S',其内部方法和 Controlled Generator 基本一致，故不再赘述。</p>
+<h3 id="guigrideditorwidgetpystaticgeneratorgraphiciteminit">/Gui/GridEditorWidget.py/StaticGeneratorGraphicItem/<strong>init</strong></h3>
+<h2 id="battery">Battery（电池）</h2>
+<p>Battery（电池）可以附加在 Bus 上，默认为黑色正方形内带字母'B'，其内部方法和 Controlled Generator 基本一致，故不再赘述。</p>
+<h3 id="guigrideditorwidgetpybatterygraphiciteminit">/Gui/GridEditorWidget.py/BatteryGraphicItem/<strong>init</strong></h3>
               
             </div>
           </div>
@@ -203,7 +283,7 @@ triangle.setPen(QPen(Qt.black, 2))
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../function/" class="btn btn-neutral float-right" title="功能类">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../function/" class="btn btn-neutral float-right" title="功能类"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../start/develope/" class="btn btn-neutral" title="二次开发"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -220,7 +300,7 @@ triangle.setPen(QPen(Qt.black, 2))
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
@@ -228,7 +308,7 @@ triangle.setPen(QPen(Qt.black, 2))
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+<div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -239,10 +319,6 @@ triangle.setPen(QPen(Qt.black, 2))
       
     </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js"></script>
-      <script src="../../search/require.js"></script>
-      <script src="../../search/search.js"></script>
 
 </body>
 </html>

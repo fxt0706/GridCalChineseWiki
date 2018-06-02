@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>代码结构 - GridCal 中文维基</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "代码结构";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> GridCal 中文维基</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">欢迎</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>主页</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../mainpage/about/">了解 Gridcal</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../mainpage/addition/">编者注</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>安装与开发</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../start/install/">安装</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../start/develope/">二次开发</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>开发指南</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">代码结构</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#gridcal">GridCal 代码结构</a></li>
+                
+                    <li><a class="toctree-l4" href="#engine">Engine</a></li>
+                
+                    <li><a class="toctree-l4" href="#gui">Gui</a></li>
+                
+                    <li><a class="toctree-l4" href="#_1">小结</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ui/">界面类</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../algorithm/">算法类</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">GridCal 中文维基</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>开发指南 &raquo;</li>
+        
+      
+    
+    <li>代码结构</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="gridcal">GridCal 代码结构</h2>
+<p>本章中的内容主要分析 GridCal 的代码结构。通过梳理代码结构，来了解 GridCal 以何种逻辑来实现对应的功能。</p>
+<p>代码结构大致如下图。可以看到 GridCal 的功能实现分为界面和计算引擎，具体的功能分别在对应的目录下细化。</p>
+<p><img alt="Gird Struct" src="../pics/GridCalStruct.png" /></p>
+<h3 id="engine">Engine</h3>
+<p>Engine 目录下的文件集成了 GridCal 所有的算法，包括基础电路处理，JSON 文件转换，电网设备参数定义，复数个潮流算法，短路计算，等等。Engine 目录由 <code>CalculationEngine.py</code> 文件，<code>Numerical 文件夹</code>，<code>Importers 文件夹</code> 组成，Numerical 包含了与电网计算直接相关的算法，Importers 包含了软件底层层面的数据处理算法，即如何处理电网参数的数据，如何展现出电网结构，<code>CalculationEngine.py</code> 是一个集成了 Numerical，Importers 所有算法的入口文件，GridCal 通过直接调用 <code>CalculationEngine.py</code> 即可使用所有的算法。</p>
+<p>Numerical 文件夹下，包含了 <code>JacobianBased.py</code>，<code>ContinuationPowerFlow.py</code>，<code>HELM.py</code> 等算法文件，包含从数学矩阵处理到具体的潮流实现，开发者可以在这些代码中插入或修改为自己的代码，也可以新建一个新算法的 .py 文件，并在 <code>CalculationEngine.py</code> 中进行调用。</p>
+<p>Importers 文件夹下包含了 <code>psat_converter.py</code>，<code>BusDefinitions.py</code>，<code>BranchDefinitions.py</code> 等文件，这些文件更多的是进行软件架构层面的数据处理，开发者如果要在 GridCal 的基础上进行二次开发，应当尽量避免改动这个目录下的文件。</p>
+<h3 id="gui">Gui</h3>
+<p>Gui 目录下集成了和界面有关的所有功能，GridCal 运行后看到的电网界面，以及计算数据的展示、组件的拖拽、按钮的点击效果，都在 Gui 目录下的文件中分别实现。Gui 目录由 <code>Main 文件夹</code>，<code>ProfilesInput 文件夹</code>，以及三个 Gui 功能的 .py 文件组成。Main 文件夹下的文件涉及了 GridCal 基础界面框架的构建，由 PyQt 设计生成，ProfilesInput 文件夹下主要处理了 excel 文件导入到 GridCal 的过程中，具体的数据格式的转换。<code>ConsoleWidget.py</code>，<code>GridEditorWidget.py</code>，<code>GuiFunctions.py</code> 三个文件为主要的 Gui 功能实现（即不涉及底层UI的），包含了按钮与功能的关联，电网画板的逻辑，以及一个集成的 Python 的控制台。</p>
+<p>Main 文件夹的内文件包含 Qt Widget 框架的布局代码，icon 文件的索引，以及一些数学展示组件的实现。开发者可以更换一些 icon 的图标文件，但是不建议修改 <code>MainWidow.py</code> 以及 <code>GridCalMain</code>的代码，这可能会导致 GridCal 界面显示以及功能连接不正常。</p>
+<p>ProfilesInput 文件夹包含了一整套 excel 数据导入的逻辑。同样也不建议修改这里的逻辑，但是如果是有经验的开发者，可以尝试在此处修改代码，加快 GridCal 读取工程时的速度。</p>
+<p><code>ConsoleWidget.py</code> 文件是专为实现 GridCal 中 IPython 控制台组建而写的。IPython 控制台的作用在于将一个完整的 Python 环境集成到了 GridCal 中，对于 GridCal 的熟练使用者，可以用简短的代码来进行运算或导出数据，直接进行一些调试。</p>
+<p><code>GridEditorWidget.py</code> 文件实现了包含大量关联和逻辑的界面编辑功能，即用户打开软件时，看到的可拖拽操纵界面，就由此文件构建而来。界面编辑内的核心功能包括电网组件编辑，电网数据显示，节点和线路拖拽行为。开发者可以在这部分中将图形组件替换成符合实际应用需求的场景，对一些操作逻辑进行修改以符合生产环境的需求。</p>
+<p><code>GuiFunctions.py</code> 文件主要包含的是界面数据显示的底层处理，例如约定了如何显示浮点数，如何显示字符串，如何显示复数，等等。这部分的内容一般无需修改，修改不当可能会造成显示不全或乱码等问题。</p>
+<h3 id="_1">小结</h3>
+<p>通过对 GridCal 代码结构的分析，可以了解到二次开发的代码切入点主要在于 <code>Numerical</code> 文件夹以及 <code>GridEditorWidget.py</code> 文件，修改或优化数学算法，以及适配针对环境的用户使用功能，是开发者可修改并且应主要针对的开发方向。</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ui/" class="btn btn-neutral float-right" title="界面类"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../start/develope/" class="btn btn-neutral" title="二次开发"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../start/develope/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ui/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

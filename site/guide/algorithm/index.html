@@ -107,14 +107,14 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../ui/">界面类</a>
+        <a class="" href="../struct/">代码结构</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../function/">功能类</a>
+        <a class="" href="../ui/">界面类</a>
         
     </li>
 
@@ -125,7 +125,13 @@
         
             <ul>
             
-                <li class="toctree-l3"><a href="#page">page</a></li>
+                <li class="toctree-l3"><a href="#_1">算法类</a></li>
+                
+                    <li><a class="toctree-l4" href="#gridcal">GridCal 集成的潮流算法</a></li>
+                
+                    <li><a class="toctree-l4" href="#newton-raphson">牛顿拉夫逊法（Newton-Raphson）</a></li>
+                
+                    <li><a class="toctree-l4" href="#continuation-power-flow">连续潮流法（Continuation Power Flow）</a></li>
                 
             
             </ul>
@@ -172,7 +178,97 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="page">page</h1>
+                <h1 id="_1">算法类</h1>
+<p>GridCal 内自带了多种的算法，以下通过具体分析算法文件的结构，来表达如何在 GridCal 中修改和加入算法。</p>
+<h2 id="gridcal">GridCal 集成的潮流算法</h2>
+<p>在运行 GridCal 后，我们可以在上方标签栏的 <code>Settings</code> 标签下的 <code>Power flow</code> 标签块下的 <code>Solver</code> 标签看到所有 GridCal 集成的适用于解决潮流计算的算法。</p>
+<p><img alt="ShowPowerFlowSolver" src="../pics/ShowPowerFlowSolver.png" /></p>
+<p>此处，我们选择传统的 Newton-Raphson 法来分析其代码，以了解如何在 GridCal 接入一个抽象的算法。</p>
+<h2 id="newton-raphson">牛顿拉夫逊法（Newton-Raphson）</h2>
+<p>Newton-Raphson 法集成在了 <code>JacobianBased.py</code> 文件中的 <code>IwamotoNR</code> 方法中。<code>IwamotoNR</code> 方法为使用了 Iwamoto 最佳步长因子的纯牛顿拉夫逊潮流算法，使用其方法需要提供的参数如下：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ybus</td>
+<td>导纳矩阵</td>
+</tr>
+<tr>
+<td>Sbus</td>
+<td>节点注功率入阵列</td>
+</tr>
+<tr>
+<td>V0</td>
+<td>节点电压阵列（初始解）</td>
+</tr>
+<tr>
+<td>Ibus</td>
+<td>节点注入电流阵列</td>
+</tr>
+<tr>
+<td>PV</td>
+<td>具有PV总线索引的阵列</td>
+</tr>
+<tr>
+<td>pq</td>
+<td>包含PQ总线索引的阵列</td>
+</tr>
+<tr>
+<td>tol</td>
+<td>公差</td>
+</tr>
+<tr>
+<td>max_it</td>
+<td>最大迭代次数</td>
+</tr>
+<tr>
+<td>robust</td>
+<td>使用Iwamoto最佳步长因子的布尔变量</td>
+</tr>
+</tbody>
+</table>
+<p>运算结束后将返回如下结果：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V</td>
+<td>电压计算结果阵列</td>
+</tr>
+<tr>
+<td>converged</td>
+<td>是否收敛，为 1 时收敛</td>
+</tr>
+<tr>
+<td>normF</td>
+<td>计算结果的误差，小于 tol 时判断为收敛</td>
+</tr>
+<tr>
+<td>Scalc</td>
+<td></td>
+</tr>
+<tr>
+<td>iter_</td>
+<td></td>
+</tr>
+<tr>
+<td>elapsed</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="continuation-power-flow">连续潮流法（Continuation Power Flow）</h2>
+<p>连续潮流法是用于电网稳定性分析的一个重要算法。</p>
               
             </div>
           </div>
@@ -181,7 +277,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="../function/" class="btn btn-neutral" title="功能类"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ui/" class="btn btn-neutral" title="界面类"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -207,7 +303,7 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../function/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../ui/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
     </span>

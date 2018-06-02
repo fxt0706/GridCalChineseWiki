@@ -4,7 +4,7 @@
 
 代码结构大致如下图。可以看到 GridCal 的功能实现分为界面和计算引擎，具体的功能分别在对应的目录下细化。
 
-![Gird Struct](http://oysi1mxyp.bkt.clouddn.com/gridcal/GridCal%20Struct.png)
+![Gird Struct](pics/GridCalStruct.png)
 
 ### Engine
 
@@ -18,7 +18,7 @@ Importers 文件夹下包含了 `psat_converter.py`，`BusDefinitions.py`，`Bra
 
 Gui 目录下集成了和界面有关的所有功能，GridCal 运行后看到的电网界面，以及计算数据的展示、组件的拖拽、按钮的点击效果，都在 Gui 目录下的文件中分别实现。Gui 目录由 `Main 文件夹`，`ProfilesInput 文件夹`，以及三个 Gui 功能的 .py 文件组成。Main 文件夹下的文件涉及了 GridCal 基础界面框架的构建，由 PyQt 设计生成，ProfilesInput 文件夹下主要处理了 excel 文件导入到 GridCal 的过程中，具体的数据格式的转换。`ConsoleWidget.py`，`GridEditorWidget.py`，`GuiFunctions.py` 三个文件为主要的 Gui 功能实现（即不涉及底层UI的），包含了按钮与功能的关联，电网画板的逻辑，以及一个集成的 Python 的控制台。
 
-Main 文件夹的内文件包含 Qt Widget 框架的布局代码，icon 文件的索引，以及一些数学展示组件的实现。开发者可以更换一些 icon 的图标文件，但是不建议修改 `Main.py` 的代码，这可能会导致 GridCal 界面显示不正常。
+Main 文件夹的内文件包含 Qt Widget 框架的布局代码，icon 文件的索引，以及一些数学展示组件的实现。开发者可以更换一些 icon 的图标文件，但是不建议修改 `MainWidow.py` 以及 `GridCalMain`的代码，这可能会导致 GridCal 界面显示以及功能连接不正常。
 
 ProfilesInput 文件夹包含了一整套 excel 数据导入的逻辑。同样也不建议修改这里的逻辑，但是如果是有经验的开发者，可以尝试在此处修改代码，加快 GridCal 读取工程时的速度。
 
@@ -29,5 +29,5 @@ ProfilesInput 文件夹包含了一整套 excel 数据导入的逻辑。同样�
 `GuiFunctions.py` 文件主要包含的是界面数据显示的底层处理，例如约定了如何显示浮点数，如何显示字符串，如何显示复数，等等。这部分的内容一般无需修改，修改不当可能会造成显示不全或乱码等问题。
 
 ### 小结
-`
+
 通过对 GridCal 代码结构的分析，可以了解到二次开发的代码切入点主要在于 `Numerical` 文件夹以及 `GridEditorWidget.py` 文件，修改或优化数学算法，以及适配针对环境的用户使用功能，是开发者可修改并且应主要针对的开发方向。

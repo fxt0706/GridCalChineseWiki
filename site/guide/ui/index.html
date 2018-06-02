@@ -106,6 +106,13 @@
 
         
             
+    <li class="toctree-l1 ">
+        <a class="" href="../struct/">代码结构</a>
+        
+    </li>
+
+        
+            
     <li class="toctree-l1 current">
         <a class="current" href="./">界面类</a>
         
@@ -115,7 +122,7 @@
                 
                     <li><a class="toctree-l4" href="#bus">Bus（母线）</a></li>
                 
-                    <li><a class="toctree-l4" href="#load">Load（负载）</a></li>
+                    <li><a class="toctree-l4" href="#load">Load（负荷）</a></li>
                 
                     <li><a class="toctree-l4" href="#shunt">Shunt (分流器)</a></li>
                 
@@ -125,15 +132,12 @@
                 
                     <li><a class="toctree-l4" href="#battery">Battery（电池）</a></li>
                 
+                    <li><a class="toctree-l4" href="#editor">Editor（编辑器）</a></li>
+                
+                    <li><a class="toctree-l4" href="#_2">菜单栏图标</a></li>
+                
             
             </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../function/">功能类</a>
         
     </li>
 
@@ -189,8 +193,10 @@
 <p>由于作者一直在优化其代码，故一些注解有其时效性。</p>
 <h2 id="bus">Bus（母线）</h2>
 <p>Bus 为网络中的基础节点，相当于母线。在Bus上，可以添加发电机，负载，接地等等</p>
-<h3 id="guigrideditorwidgetpybusgraphiciteminit">/Gui/GridEditorWidget.py/BusGraphicItem/<strong>init</strong></h3>
-<p>Bus 对象的初始化方法。其中可修改绘图板内的 Bus 的默认正方形图标为圆形。</p>
+<blockquote>
+<p>/Gui/GridEditorWidget.py/BusGraphicItem/<strong>init</strong></p>
+</blockquote>
+<p>这里实现了 Bus 对象的初始化方法。其中可修改绘图板内的 Bus 的默认正方形图标为圆形。</p>
 <pre><code class="python"># bus 默认为长条状的长方形，宽180,长20，修改数字即可修改长宽
 self.min_w = 180.0
 self.min_h = 20.0
@@ -210,14 +216,18 @@ self.label.setDefaultTextColor(QtCore.Qt.black)
 
 </code></pre>
 
-<h3 id="guigrideditorwidgetpygrideditorinit">/Gui/GridEditorWidget.py/GridEditor/<strong>init</strong></h3>
+<blockquote>
+<p>/Gui/GridEditorWidget.py/GridEditor/<strong>init</strong></p>
+</blockquote>
 <p>将左侧列表中的小Bus图标，可将正方形改为圆形。</p>
 <pre><code class="python">self.libItems.append(QStandardItem(object_factory.get_box(), 'Bus'))
 # get_box 修改为 get_circle
 self.libItems.append(QStandardItem(object_factory.get_circle(), 'Bus'))
 </code></pre>
 
-<h3 id="guigrideditorwidgetobjectfactoryget_circle">/Gui/GridEditorWidget/ObjectFactory/get_circle</h3>
+<blockquote>
+<p>/Gui/GridEditorWidget/ObjectFactory/get_circle</p>
+</blockquote>
 <p>可修改左侧列表中的小Bus图标的圆形的参数，例如加黑边，更换颜色。</p>
 <pre><code class="python"># 修改刷子的颜色以及圆形的大小
 painter.setBrush(Qt.black)
@@ -226,7 +236,9 @@ painter.setBrush(Qt.white)
 painter.drawEllipse(8, 8, 24, 24)
 </code></pre>
 
-<h3 id="guigrideditorwidgetbusgraphicitemcontextmenuevent">/gui/GridEditorWidget/BusGraphicItem/contextMenuEvent</h3>
+<blockquote>
+<p>/gui/GridEditorWidget/BusGraphicItem/contextMenuEvent</p>
+</blockquote>
 <p>修改在Bus上点击右键后，所展示的内容</p>
 <pre><code class="python"># addAction 中的参数为展示的文字
 pe = menu.addAction('Enable/Disable')
@@ -234,9 +246,11 @@ pe = menu.addAction('Enable/Disable')
 pe.triggered.connect(self.enable_disable_toggle)
 </code></pre>
 
-<h2 id="load">Load（负载）</h2>
-<p>Load（负载）可以附加在 Bus 上，默认为简单的黑色空心三角形</p>
-<h3 id="guigrideditorwidgetpyloadgraphiciteminit">/Gui/GridEditorWidget.py/LoadGraphicItem/<strong>init</strong></h3>
+<h2 id="load">Load（负荷）</h2>
+<p>Load（负荷）可以附加在 Bus 上，默认为简单的黑色空心三角形</p>
+<blockquote>
+<p>/Gui/GridEditorWidget.py/LoadGraphicItem/<strong>init</strong></p>
+</blockquote>
 <p>可修改 Load 的大小和颜色</p>
 <pre><code class="python">triangle = Polygon(self)
 # 修改多边形形状
@@ -247,7 +261,9 @@ triangle.setPen(QPen(Qt.black, 2))
 
 <h2 id="shunt">Shunt (分流器)</h2>
 <p>Shunt(分流器) 可以附加在 Bus 上，默认为黑色的电容器接地状。</p>
-<h3 id="guigrideditorwidgetpyshuntgraphiciteminit">/Gui/GridEditorWidget.py/ShuntGraphicItem/<strong>init</strong></h3>
+<blockquote>
+<p>/Gui/GridEditorWidget.py/ShuntGraphicItem/<strong>init</strong></p>
+</blockquote>
 <p>可修改 shunt 的颜色</p>
 <pre><code class="python"># 默认为黑色
 pen = QPen(self.color, self.width, self.style)
@@ -257,7 +273,9 @@ pen = QPen(Qt.blue, self.width, self.style)
 
 <h2 id="controlled-generator">Controlled Generator（受控发电机）</h2>
 <p>Controlled Generator（受控发电机）可以附加在 Bus 上，默认为黑色圆圈内带字母'G'</p>
-<h3 id="guigrideditorwidgetpycontrolledgeneratorgraphiciteminit">/Gui/GridEditorWidget.py/ControlledGeneratorGraphicItem/<strong>init</strong></h3>
+<blockquote>
+<p>/Gui/GridEditorWidget.py/ControlledGeneratorGraphicItem/<strong>init</strong></p>
+</blockquote>
 <pre><code class="python"># 默认内部字母为 G
 self.label = QGraphicsTextItem('G',parent=self.glyph)
 # 修改字母为 CG
@@ -272,10 +290,42 @@ self.label.setDefaultTextColor(Qt.red)
 
 <h2 id="static-generator">Static Generator（静止发电机）</h2>
 <p>Static Generator（静止发电机）可以附加在 Bus 上，默认为黑色正方形内带字母'S',其内部方法和 Controlled Generator 基本一致，故不再赘述。</p>
-<h3 id="guigrideditorwidgetpystaticgeneratorgraphiciteminit">/Gui/GridEditorWidget.py/StaticGeneratorGraphicItem/<strong>init</strong></h3>
+<blockquote>
+<p>/Gui/GridEditorWidget.py/StaticGeneratorGraphicItem/<strong>init</strong></p>
+</blockquote>
 <h2 id="battery">Battery（电池）</h2>
 <p>Battery（电池）可以附加在 Bus 上，默认为黑色正方形内带字母'B'，其内部方法和 Controlled Generator 基本一致，故不再赘述。</p>
-<h3 id="guigrideditorwidgetpybatterygraphiciteminit">/Gui/GridEditorWidget.py/BatteryGraphicItem/<strong>init</strong></h3>
+<blockquote>
+<p>/Gui/GridEditorWidget.py/BatteryGraphicItem/<strong>init</strong></p>
+</blockquote>
+<h2 id="editor">Editor（编辑器）</h2>
+<p>GridCal 的组件拖拽界面称为编辑器，其原理为使用了 Qt 的画布，并在其基础上，根据电力网络模型的需求定义了组件、拖拽、缩放、旋转等功能。需要注意的是，所有的 UI 操作都是基于 Qt 组件实现的，参照 Qt 的 API 即可进行深度的修改。</p>
+<blockquote>
+<p>/Gui/GridEditorWidget.py/EditorGraphicsView/<strong>init</strong></p>
+</blockquote>
+<pre><code class="python"># DragMode 可参照 Qt API 进行修改
+self.setDragMode(QGraphicsView.RubberBandDrag)
+# 可设定鼠标是否跟踪
+self.setMouseTracking(True)
+# 可设定 Editor 是否有互动响应
+self.setInteractive(True)
+</code></pre>
+
+<h2 id="_2">菜单栏图标</h2>
+<p>GridCal 的菜单栏图标较为鲜艳亮丽，且和国内的电力网络常用符号较为不同。若要修改菜单栏上功能键的图标，可通过两种方式进行：</p>
+<ol>
+<li>
+<p>安装 Qt 环境后，打开 <code>Gui/Main/MainWindow.ui</code> 文件，可以直接在图形界面对菜单栏上的图标源进行修改，修改完毕后，重新编译生成 MainWindow.py 文件即可</p>
+</li>
+<li>
+<p>修改 <code>Gui/Main/MainWindow.py</code> 文件，通过索引 <code>setIcon</code> 方法来定位可能需要修改的位置。以下进行了一些修改的例子。</p>
+</li>
+</ol>
+<pre><code class="python"># 修改菜单栏 Power Flow 按钮为重新绘制的按钮
+self.actionPower_flow.setIcon(icon10_new)
+# 修改菜单栏 Power Flow Series 按钮为重绘的按钮
+self.actionPower_Flow_Time_series.setIcon(icon24_new)
+</code></pre>
               
             </div>
           </div>
@@ -283,10 +333,10 @@ self.label.setDefaultTextColor(Qt.red)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../function/" class="btn btn-neutral float-right" title="功能类"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../algorithm/" class="btn btn-neutral float-right" title="算法类"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../start/develope/" class="btn btn-neutral" title="二次开发"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../struct/" class="btn btn-neutral" title="代码结构"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -312,10 +362,10 @@ self.label.setDefaultTextColor(Qt.red)
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../start/develope/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../struct/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../function/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../algorithm/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

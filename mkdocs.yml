@@ -9,8 +9,10 @@ pages:
     - '安装' : 'start/install.md'
     - '二次开发' : 'start/develope.md'
   - 开发指南:
-    - '代码结构': 'guide/struct.md'
-    - '界面类' : 'guide/ui.md'
-    - '算法类' : 'guide/algorithm.md'
+    - '代码结构' : 'guide/struct.md'
+    - '界面开发' : 'guide/ui.md'
+    - '算法开发' : 'guide/algorithm.md'
+    - '优化思路' : 'guide/optimization.md'
 
-theme: readthedocs
+theme:
+  name: 'material'
